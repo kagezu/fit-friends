@@ -1,8 +1,10 @@
 {
   "scripts": {
-    "start": "npm run compose --prefix fit-friends-1 & npm start --prefix fit-friends-1 & npm start --prefix fit-friends-2",
     "install": "npm i --prefix fit-friends-1 && npm i --prefix fit-friends-2",
+    "docker": "npm run compose --prefix fit-friends-1",
+    "start": "npm start --prefix fit-friends-1 & npm start --prefix fit-friends-2",
     "build": "npm run buildImage --prefix fit-friends-1 && npm run buildImage --prefix fit-friends-2",
-    "compose": "docker compose --file ./compose/docker-compose.yml --project-name \"fit-friends\" up"
+    "image": "docker compose --file ./deploy/docker-compose.yml --project-name \"fit-friends\" up -d",
+    "all": "npm run install && npm run docker && npm run start"
   }
 }

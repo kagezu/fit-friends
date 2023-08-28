@@ -8,8 +8,7 @@
       "executor": "nx:run-commands",
       "options": {
         "commands":[
-          "nx run app:build",
-          "docker build --file ./apps/app/Dockerfile --tag fitfriends.app:latest ."
+          "nx run app:build && docker build --file ./apps/app/Dockerfile --tag fitfriends.app:latest ."
         ]
       }
     },

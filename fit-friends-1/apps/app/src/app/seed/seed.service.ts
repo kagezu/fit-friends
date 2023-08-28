@@ -244,7 +244,7 @@ export class SeedService {
           new FileEntity({
             originalName: file,
             size: 0,
-            mimetype: 'application/pdf',
+            mimetype: 'image/jpeg',
             hashName: file,
             path: file
           }))));
