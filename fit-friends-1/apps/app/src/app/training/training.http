@@ -1,0 +1,83 @@
+
+@baseUrl = http://localhost:3333/api
+@protocol = HTTP/1.1
+
+# Create new training
+POST  {{baseUrl}}/training {{protocol}}
+Content-Type: multipart/form-data; boundary=Create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+--Create
+Content-Disposition: form-data; name="title"
+
+Разминка
+--Create
+Content-Disposition: form-data; name="trainingLevel"
+
+новичок
+--Create
+Content-Disposition: form-data; name="trainingTypes"
+
+бег
+--Create
+Content-Disposition: form-data; name="interval"
+
+30-50 мин
+--Create
+Content-Disposition: form-data; name="caloriesToBurn"
+
+1000
+--Create
+Content-Disposition: form-data; name="price"
+
+500
+--Create
+Content-Disposition: form-data; name="description"
+
+Описание тренировки.
+--Create
+Content-Disposition: form-data; name="usersGender"
+
+неважно
+--Create
+Content-Disposition: form-data; name="specialOffer"
+
+false
+--Create
+Content-Disposition: form-data; name="video"; filename="test.mp4"
+Content-Type: video/mp4
+
+< ../../../../../../test/test.mp4
+--Create--
+
+###
+# Update training
+PATCH   {{baseUrl}}/training/64aceb2ba6024431a2237a65 {{protocol}}
+Content-Type: multipart/form-data; boundary=Create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+--Create
+Content-Disposition: form-data; name="title"
+
+Разминка 2
+--Create
+Content-Disposition: form-data; name="specialOffer"
+
+true
+--Create--
+
+###
+
+# Get training info
+GET http://localhost:3333/api/training/detail/64aceb2ba6024431a2237a65 {{protocol}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+###
+# Get training list
+GET http://localhost:3333/api/training/my?limit=50&sortDirection=desc&page=0&priceFrom=0&priceTo=20000&caloriesFrom=1000&caloriesTo=5000&ratingFrom=0&ratingTo=5 {{protocol}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTA3MjIzMiwiZXhwIjoxNjg5Njc3MDMyfQ.QuJXP__4KuESCwKUXGaThbMLbMCy9trkH-7sGO4oJws
+
+###
+# Get training index
+GET http://localhost:3333/api/training/?limit=50&sortDirection=desc&category=createdAt&page=0&priceFrom=0&priceTo=20000&caloriesFrom=1000&caloriesTo=5000&ratingFrom=0&ratingTo=5&trainingType=бег {{protocol}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTA3MjIzMiwiZXhwIjoxNjg5Njc3MDMyfQ.QuJXP__4KuESCwKUXGaThbMLbMCy9trkH-7sGO4oJws

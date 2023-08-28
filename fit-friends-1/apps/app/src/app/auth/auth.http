@@ -1,0 +1,163 @@
+
+@baseUrl = http://localhost:3333/api
+@contentType = application/json
+@protocol = HTTP/1.1
+
+# Create a new user (role = пользователь)
+POST {{baseUrl}}/auth/register {{protocol}}
+Content-Type: multipart/form-data; boundary=Register
+Authorization: Bearer 
+
+--Register
+Content-Disposition: form-data; name="email"
+
+user06@notfound.local
+--Register
+Content-Disposition: form-data; name="name"
+
+Smith
+--Register
+Content-Disposition: form-data; name="password"
+
+123456
+--Register
+Content-Disposition: form-data; name="gender"
+
+мужской
+--Register
+Content-Disposition: form-data; name="birthday"
+
+2012-02-22
+--Register
+Content-Disposition: form-data; name="role"
+
+пользователь
+--Register
+Content-Disposition: form-data; name="description"
+
+Текст с общей информацией. Минимальная длина 10 символ. Максимальная длина: 140 символов.
+--Register
+Content-Disposition: form-data; name="location"
+
+Петроградская
+--Register
+Content-Disposition: form-data; name="background"
+
+training-4.png
+--Register
+Content-Disposition: form-data; name="trainingLevel"
+
+новичок
+--Register
+Content-Disposition: form-data; name="trainingTypes"
+
+бокс,стрейчинг
+--Register
+Content-Disposition: form-data; name="interval"
+
+30-50 мин
+--Register
+Content-Disposition: form-data; name="caloriesToBurn"
+
+3000
+--Register
+Content-Disposition: form-data; name="caloriesPerDay"
+
+1150
+--Register
+Content-Disposition: form-data; name="readyForTraining"
+
+true
+--Register
+Content-Disposition: form-data; name="avatar"; filename="photo-1.png"
+Content-Type: image/png
+
+< ../../../../../../test/photo-1.png
+--Register--
+
+
+#### Create a new user (role = тренер)
+POST {{baseUrl}}/auth/register {{protocol}}
+Content-Type: multipart/form-data; boundary=Register
+Authorization: Bearer 
+
+--Register
+Content-Disposition: form-data; name="email"
+
+user12@notfound.local
+--Register
+Content-Disposition: form-data; name="name"
+
+Smith
+--Register
+Content-Disposition: form-data; name="password"
+
+123456
+--Register
+Content-Disposition: form-data; name="gender"
+
+мужской
+--Register
+Content-Disposition: form-data; name="birthday"
+
+2012-02-22
+--Register
+Content-Disposition: form-data; name="role"
+
+тренер
+--Register
+Content-Disposition: form-data; name="description"
+
+Текст с общей информацией. Минимальная длина 10 символ. Максимальная длина: 140 символов.
+--Register
+Content-Disposition: form-data; name="location"
+
+Спортивная
+--Register
+Content-Disposition: form-data; name="background"
+
+training-4.png
+--Register
+Content-Disposition: form-data; name="trainingLevel"
+
+профессионал
+--Register
+Content-Disposition: form-data; name="trainingTypes"
+
+аэробика,пилатес
+--Register
+Content-Disposition: form-data; name="resume"
+
+Заслуги тренера.
+--Register
+Content-Disposition: form-data; name="readyForIndividualTraining"
+
+true
+--Register
+Content-Disposition: form-data; name="avatar"; filename="photo-1.png"
+Content-Type: image/png
+
+< ../../../../../../test/photo-1.png
+--Register
+Content-Disposition: form-data; name="certificate"; filename="1.pdf"
+Content-Type: application/pdf
+
+< ../../../../../../test/1.pdf
+--Register--
+
+###
+
+# Login user by email and password
+POST http://localhost:3333/api/auth/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+  "email": "c-test@gmail.com",
+  "password": "123456"
+}
+
+###
+
+# Get new JWT pair
+POST http://localhost:3333/api/auth/refresh HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJ0b2tlbklkIjoiYzY2M2VlNjEtZDUzYy00NjQ2LTgwOTktZWYwYzY5ZWIxZjdmIiwiaWF0IjoxNjg5MDUzNjI0LCJleHAiOjE2ODk2NTg0MjR9.tz20PDbRf_BzDBtmA2sc6SQGrNaEepWY_52wdVuzpbw

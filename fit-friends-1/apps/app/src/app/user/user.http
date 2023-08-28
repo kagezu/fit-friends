@@ -1,0 +1,44 @@
+
+@baseUrl = http://localhost:3333/api
+@protocol = HTTP/1.1
+
+# Update user
+PATCH  {{baseUrl}}/user/update {{protocol}}
+Content-Type: multipart/form-data; boundary=Register
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+--Register
+Content-Disposition: form-data; name="caloriesToBurn"
+
+3000
+--Register
+Content-Disposition: form-data; name="caloriesPerDay"
+
+1500
+--Register
+Content-Disposition: form-data; name="avatar"; filename="photo-2.png"
+Content-Type: image/png
+
+< ../../../../../../test/photo-2.png
+--Register
+Content-Disposition: form-data; name="certificate"; filename="1.pdf"
+Content-Type: application/pdf
+
+< ../../../../../../test/1.pdf
+--Register--
+
+###
+
+# Get user info
+GET http://localhost:3333/api/user/64ace6ffb7ef2dbe0015ff63 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+###
+# Get users list
+GET http://localhost:3333/api/user?limit=3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s
+
+###
+# Get users list
+GET http://localhost:3333/api/user?limit=3&page=1&category=createdAt&sortDirection=asc&trainingTypes=аэробика,йога&trainingLevel=профессионал HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFjZTlhOWI3ZWYyZGJlMDAxNjAyZjMiLCJlbWFpbCI6InVzZXIxMkBub3Rmb3VuZC5sb2NhbCIsInJvbGUiOiLRgtGA0LXQvdC10YAiLCJuYW1lIjoiU21pdGgiLCJpYXQiOjE2ODkwNTM2NjMsImV4cCI6MTY4OTY1ODQ2M30.xFsUgXC-PGBBeqjE9yP4JddU_AZlk255JYYinFEnG5s

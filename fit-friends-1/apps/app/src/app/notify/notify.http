@@ -1,0 +1,14 @@
+
+@baseUrl = http://localhost:3333/api
+@protocol = HTTP/1.1
+
+# Get notifys list
+GET {{baseUrl}}/notify {{protocol}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTA3MjIzMiwiZXhwIjoxNjg5Njc3MDMyfQ.QuJXP__4KuESCwKUXGaThbMLbMCy9trkH-7sGO4oJws
+
+###
+
+###
+# Delete notify
+DELETE http://localhost:3333/api/notify/649f9bfd7974b6f0298bc9a9 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTA3MjIzMiwiZXhwIjoxNjg5Njc3MDMyfQ.QuJXP__4KuESCwKUXGaThbMLbMCy9trkH-7sGO4oJws

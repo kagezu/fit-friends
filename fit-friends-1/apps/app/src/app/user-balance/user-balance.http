@@ -1,0 +1,33 @@
+
+@baseUrl = http://localhost:3333/api
+@protocol = HTTP/1.1
+
+# Get balance list
+GET {{baseUrl}}/balance {{protocol}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4OTEiLCJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwicm9sZSI6ItC_0L7Qu9GM0LfQvtCy0LDRgtC10LvRjCIsIm5hbWUiOiLQoNC-0LzQsNC9INCU0LzQuNGC0YDQuNC10LLQuNGHIiwiaWF0IjoxNjg5MDgxMzA3LCJleHAiOjE2ODk2ODYxMDd9.R6hqgufpPsM5XCWV1zrT4i0A40eMWpb9kUyK9-G2FlU
+
+###
+
+# Add balance
+PATCH  http://localhost:3333/api/balance/add HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTEyMzA5NSwiZXhwIjoxNjg5NzI3ODk1fQ.V_og-b-sTA4Wjw2PptPe2ah1KXEh6W_cRxC_TOnf_nY
+
+{
+ "userId":"64ad324fb31374877b1b788f", 
+ "training":"64ad3250b31374877b1b78e6", 
+ "count":2
+}
+
+###
+
+# Decrice balance
+PATCH http://localhost:3333/api/balance/dec HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NGFkMzI0ZmIzMTM3NDg3N2IxYjc4YTciLCJlbWFpbCI6ImMtdGVzdEBnbWFpbC5jb20iLCJyb2xlIjoi0YLRgNC10L3QtdGAIiwibmFtZSI6ItCY0L3QtdGB0YHQsCDQpNGD0YDRgdC-0LLQsCIsImlhdCI6MTY4OTEyMzA5NSwiZXhwIjoxNjg5NzI3ODk1fQ.V_og-b-sTA4Wjw2PptPe2ah1KXEh6W_cRxC_TOnf_nY
+
+{
+ "userId":"64ad324fb31374877b1b788f", 
+ "training":"64ad3250b31374877b1b78e6", 
+ "count":3
+}
