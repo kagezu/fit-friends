@@ -5,9 +5,22 @@ services:
     restart: always
     container_name: fitfriends.mongo
     env_file:
-      - .fit.mongo.env
+      - .mongo.env
     volumes:
       - fitfriends.app.volume:/data/db
+    networks:
+      - fitfriends.app.network
+
+  fitfriends.mongo.ui:
+    image: mongo-express
+    depends_on:
+      - fitfriends.mongo
+    restart: always
+    container_name: fitfriends.mongo.ui
+    env_file:
+      - .mongo.ui.env
+    ports:
+      - 8081:8081
     networks:
       - fitfriends.app.network
 
@@ -28,11 +41,20 @@ services:
       - fitfriends.mongo
     restart: always
     env_file:
-      - .fit.app.env
+      - .app.env
     networks:
       - fitfriends.app.network
     ports:
       - 3333:3333
+
+  fitfriends.client:
+    image: fitfriends.client:latest
+    container_name: fitfriends.client
+    depends_on:
+      - fitfriends.app
+    restart: always
+    ports:
+      - 3000:80
 
 networks:
   fitfriends.app.network:

@@ -6,9 +6,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
-    "test-coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .tsx --ext .ts src/"
+    "lint": "eslint --ext .tsx --ext .ts src/",
+    "buildImage": "npm run build && docker build --file ./Dockerfile --tag fitfriends.client:latest ."
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",

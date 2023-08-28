@@ -4,7 +4,10 @@
   "license": "MIT",
   "scripts": {
     "start": "nx run app:serve",
-    "lint": "nx run app:lint"
+    "compose": "docker compose --file ./apps/app/docker-compose.yml --project-name \"app\" up -d",
+    "build": "nx run app:lint",
+    "lint": "nx run app:build",
+    "buildImage": "nx run app:buildImage"
   },
   "private": true,
   "dependencies": {

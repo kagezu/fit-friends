@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "npm run compose --prefix fit-friends-1 & npm start --prefix fit-friends-1 & npm start --prefix fit-friends-2",
+    "install": "npm i --prefix fit-friends-1 && npm i --prefix fit-friends-2",
+    "build": "npm run buildImage --prefix fit-friends-1 && npm run buildImage --prefix fit-friends-2",
+    "compose": "docker compose --file ./compose/docker-compose.yml --project-name \"fit-friends\" up"
+  }
+}

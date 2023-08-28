@@ -1,4 +1,4 @@
-import { Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, Get } from '@nestjs/common';
 import { ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
 import { SeedService } from './seed.service';
 
@@ -14,7 +14,7 @@ export class SeedController {
     description: 'Initial database'
   })
   @HttpCode(HttpStatus.CREATED)
-  @Post()
+  @Get()
   public async generate() {
     return this.seedService.generate();
   }

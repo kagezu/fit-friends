@@ -1,5 +1,5 @@
 export const MAX_TRAINING_TYPE = 3;
-export const STATIC_PATH = 'http://localhost:3333/static/';
+export const STATIC_PATH = `${process.env.BACKEND ?? 'http://localhost:3333'}/static/`;
 export const ESCAPE_KEY = 'Escape';
 
 export enum AppRoute {

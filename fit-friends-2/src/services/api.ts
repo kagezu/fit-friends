@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { KeyName, getItem } from './token';
 
-const BACKEND_URL = 'http://localhost:3333/api';
 const REQUEST_TIMEOUT = 5000;
 const AUTHORIZATION_FIELD = 'Authorization';
+const BACKEND_URL = `${process.env.BACKEND ?? 'http://localhost:3333'}/api`;
 
 export const createAPI = (): AxiosInstance => {
   const api = axios.create({
