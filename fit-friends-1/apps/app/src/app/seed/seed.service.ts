@@ -144,7 +144,7 @@ export class SeedService {
           })))));
   }
 
-  private async generateTrainings(coachs: User[], video: File) {
+  private async generateTrainings(coachs: User[], video: File[]) {
     const trainings = [];
     for (let i = 0; i < COUNT_ITEM; i++) {
       const coachId = getRandomItem(coachs)._id;
@@ -159,7 +159,7 @@ export class SeedService {
           caloriesToBurn: generateRandomValue(UserValidate.minCaloriesToBurn, UserValidate.maxCaloriesToBurn),
           description: getRandomItem(mockData.descriptions),
           usersGender: getRandomItem(mockData.genders),
-          demoVideo: video._id,
+          demoVideo: getRandomItem(video)._id,
           rating: 0,
           coachId,
           specialOffer: true,
@@ -251,14 +251,15 @@ export class SeedService {
   }
 
   private async generateVideo() {
-    const video = getRandomItem(mockData.demoVideos);
-    return this.fileRepository.create(
-      new FileEntity({
-        originalName: video,
-        size: 0,
-        mimetype: 'video/mkv',
-        hashName: video,
-        path: video
-      }));
+    return Promise.all(
+      mockData.demoVideos.map(
+        async (name) => this.fileRepository.create(
+          new FileEntity({
+            originalName: name,
+            size: 0,
+            mimetype: 'video/mkv',
+            hashName: name,
+            path: name
+          }))));
   }
 }

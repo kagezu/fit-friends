@@ -53,8 +53,6 @@ services:
     depends_on:
       - fitfriends.app
     restart: always
-    env_file:
-      - .client.env
     ports:
       - 3000:80
 

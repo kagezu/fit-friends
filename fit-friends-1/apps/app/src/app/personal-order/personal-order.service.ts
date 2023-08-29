@@ -10,7 +10,6 @@ enum ExceptionMessage {
   OrderForYourself = 'You cannot create an order for yourself.',
   OrderNotExist = 'Personal order not exist.',
   OrderExist = 'Personal order exist.',
-  CannotChangeStatus = 'You cannot change the status of this order',
   StatusNotChanged = 'Status not changed.'
 }
 
@@ -69,13 +68,6 @@ export class PersonalOrderService {
       throw new NotFoundException(ExceptionMessage.OrderNotExist)
     }
 
-    if (user._id.toString() !== existPersonalOrder.user.toString()) {
-      throw new BadRequestException(ExceptionMessage.CannotChangeStatus);
-    }
-
-    if (existPersonalOrder.orderStatus === status) {
-      throw new ConflictException(ExceptionMessage.CannotChangeStatus)
-    }
 
     const orderEntity = new PersonalOrderEntity({
       ...existPersonalOrder,
