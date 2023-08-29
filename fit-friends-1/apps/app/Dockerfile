@@ -3,5 +3,4 @@ WORKDIR /opt/app
 COPY ./dist/apps/app/package.json .
 RUN npm install -omit=dev
 COPY ./dist/apps/app .
-COPY ./libs/shared/mock-data/public ./uploads
 CMD ["node", "./main.js"]
