@@ -51,6 +51,7 @@ export class UpdateUserDto {
     minLength: UserValidate.minLengthDescription,
     maxLength: UserValidate.maxLengthDescription
   })
+  @Transform(({ obj }) => obj.description.split('\r').join(''))
   @IsString()
   @MinLength(UserValidate.minLengthDescription)
   @MaxLength(UserValidate.maxLengthDescription)
@@ -161,6 +162,7 @@ export class UpdateUserDto {
     minLength: UserValidate.minLengthMeritsOfCoach,
     maxLength: UserValidate.maxLengthMeritsOfCoach
   })
+  @Transform(({ obj }) => obj.resume.split('\r').join(''))
   @IsString()
   @MinLength(UserValidate.minLengthMeritsOfCoach)
   @MaxLength(UserValidate.maxLengthMeritsOfCoach)

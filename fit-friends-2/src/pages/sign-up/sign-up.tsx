@@ -98,6 +98,7 @@ export default function SignUp(): JSX.Element {
                           <input onChange={handleFormDataChange} type="email" name="email" />
                         </span>
                         {errors.email ? <span className="custom-input__error">{errors.email}</span> : ''}
+                        {errors.message ? <span className="custom-input__error">{errors.message}</span> : ''}
                       </label>
                     </div>
                     <div className={errors.birthday ? 'custom-input  custom-input--error' : 'custom-input'}>
